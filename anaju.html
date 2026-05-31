@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5; /* neutro na primeira tela */
+      transition: background-color 0.5s;
+    }
+
+    .container {
+      display: none;
+    }
+
+    .ativo {
+      display: block;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+    }
+
+    #sim {
+      background-color: #ff4d88;
+      color: white;
+    }
+
+    #nao {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    h1 {
+      color: #d63384;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela 1 -->
+  <div id="tela1" class="container ativo">
+    <h1>Anajulia, aceita namorar comigo? 💖</h1>
+    <button id="sim" onclick="aceitou()">Sim 💕</button>
+    <button id="nao" onmouseover="fugir()">Não 😢</button>
+  </div>
+
+  <!-- Tela 2 -->
+  <div id="tela2" class="container">
+    <h1>Você disse SIM 💖</h1>
+    <p>
+        <img src="naju.jpeg" alt="naju" class="foto">
+      Eu prometo cuidar de você, te fazer sorrir nos dias bons e estar ao seu lado nos difíceis.
+      Você é especial demais pra mim 💕
+    </p>
+    <p>
+      Agora é oficial… nós dois ✨💑
+    </p>
+  </div>
+
+  <script>
+    function aceitou() {
+      document.getElementById("tela1").classList.remove("ativo");
+      document.getElementById("tela2").classList.add("ativo");
+
+      // muda o fundo só aqui
+      document.body.style.backgroundColor = "#ffb6c1"; // rosa presente, mas suave
+    }
+
+    function fugir() {
+      let largura = window.innerWidth - 100;
+      let altura = window.innerHeight - 100;
+
+      let x = Math.random() * largura;
+      let y = Math.random() * altura;
+
+      let botao = document.getElementById("nao");
+      botao.style.left = x + "px";
+      botao.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
